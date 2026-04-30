@@ -1,6 +1,6 @@
 # SKILL LAB PRATICAL HACKATHON
 
-## Final Project README
+Yoga Mudra - TechWizards
 
 > **Project Weight:** 100%  
 > **Team Size:** 4/3 students  
@@ -55,7 +55,7 @@ By the final review, this README should clearly show:
 
 # 1. Team Identity
 
-## 1.1 Studio / Group Name
+## 1.1 Tech Wizards
 
 `Project^2`
 
@@ -63,12 +63,14 @@ By the final review, this README should clearly show:
 
 | Name                  | Primary Role                    | Secondary Role   | Strengths Brought to the Project |
 | --------------        | ------------------------------- | --------------   | -------------------------------- |
-| `Mrugendra Vasmatkar` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
-| `Jyoti Bagate`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| Purva Patil           | Implementation                  | Coding           | `Documentation, Gift of Gab `|
+| Amey Padwal           | Testing & Training              | Debugging        | `Material Handling, Hardware`    |
+| Animish Pradhan       | Documentation                   | Github           | `Documentation, Gift of Gab `|
+| Avdhoot Dinkar        | Literature survey               | Github           | `Material Handling, Hardware`    |
 
 ## 1.3 Project Title
 
-`"Project Project"`
+`Yoga Mudras`
 
 `(because Project-or)`
 
@@ -244,16 +246,10 @@ Add a sketch with labels showing:
 
 | Component                 | Quantity | Purpose                               |
 | ------------------------- | --------:| ------------------------------------- |
-| `[Raspi/FPGA]`                 | `1`      | `[Main controller]`                   |
-| `[L298N Motor Driver]`    | `1`      | `[Control Motors]`                    |
-| `[BO Motors]`             | `2`      | `[Rotate wheels]`                     |
-| `[Buck Converter]`        | `1`      | `[Power ESP32]`                       |
-| `[Li Ion Battery Pack]`   | `2`      | `[Power]`                             |
-| `[Projector]`             | `1`      | `[Display obstacles]`                 |
-| `Camera (Webcam / Phone)` | `1`      | `[Tracks car position using markers]` |
+| Raspi                     | `1`      |    Main controller                    |
+| Camera (Webcam)           | `1`      | Tracks Mudra usding Hand gesture      |
 
 ## 7.2 Wiring Plan
-
 Describe the main electrical connections.
 
 **sample Response:**  
@@ -289,7 +285,7 @@ Insert a hand-drawn or software-made circuit diagram.
 
 | Tool / Platform                | Purpose                                        |
 | ------------------------------ | ---------------------------------------------- |
-| `[MicroPython]`                | `Control ESP32`                                |
+
 | `[Python/PyGame/OpenCV]`       | `Track markers, game logic, create projection` |
 | `[Fusion/Blender/Illustrator]` | `[Prototyping structure]`                      |
 |                                |                                                |
