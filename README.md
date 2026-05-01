@@ -10,48 +10,7 @@ Hand Gesture Recognition - A Computer Vision Application for Recognizing Traditi
 
 ---
 
-# Before you begin
 
-## Fork and rename this repository
-
-After forking this repository, rename it using the format:
-
-`SKILLLAB_PROR-2026-TeamName`
-
-### Example
-
-`SKILLLAB_PROR-2026-AuroWizards`
-
-Do not keep the default repository name.
-
----
-
-# How to use this README
-
-This file is your team’s **working project document**.
-
-You must keep updating it throughout the build period.  
-By the final review, this README should clearly show:
-
-- your idea,
-- your planning,
-- your design decisions,
-- your technical process,
-- your build progress,
-- your testing,
-- your failures and changes,
-- your final outcome.
-
-## Rules
-
-- Fill every section.
-- Do not delete headings.
-- If something does not apply, write `Not applicable` and explain why.
-- Add images, screenshots, sketches, links, and videos wherever useful.
-- Update task status and weekly logs regularly.
-- Use this file as evidence of process, not only as a final report.
-
----
 
 # 1. Team Identity
 
@@ -248,10 +207,10 @@ Insert a hand-drawn or software-made circuit diagram.
 
 | Question         | Response                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power source     | `Battery (Li-ion pack)`                                                                                                                           |
-| Voltage required | `~6–8.4V for motors (via driver), stepped down to 5V for ESP32 (buck converter)`                                                                  |
-| Current concerns | `Motors can draw high current under load, which may cause voltage drops affecting ESP32 and WiFi stability`                                       |
-| Safety concerns  | `Avoid over-discharging Li-ion batteries, ensure proper voltage regulation, prevent short circuits, and secure wiring to avoid loose connections` |
+| Power source     | 5V DC Adapter (USB Type-C) for Raspberry Pi                                                                                                               |
+| Voltage required | 5V regulated supply for Raspberry Pi and USB webcam                                                                  |
+| Current concerns | High CPU usage during real-time processing may increase current draw and cause heating                                      |
+| Safety concerns  | Use certified adapter, avoid overloading USB ports, ensure proper ventilation to prevent overheating |
 
 ---
 
@@ -326,44 +285,31 @@ Suggested sequence:
 
 | Item                             | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec               | Why This Choice?          |
 | -------------------------------- | --------:| ------- | ------------ | --------------:| ----------------------------- | ------------------------- |
-| `[RASPI]`                        | `1`      | `Yes`   | `No`         | `0`            | `38 Pin ESP32`                | `[To control components]` |
-| `[Motor Driver]`                 | `[1]`    | `[Yes]` | `[No]`       | `0`            | `[LN296]`                     | `[To drive both motors]`  |
-| `[DC Motors and wheel]`          | `[2]`    | `[No]`  | `[Yes]`      | `[150]`        | `[BO Motors and 6 cm wheels]` | `[high torque motors]`    |
-| `[Buck Converter]`               | `[1]`    | `[No]`  | `[Yes]`      | `[75]`         |                               |                           |
-| `[Li-ion batteries with holder]` | `[1]`    | `[No]`  | `[Yes]`      | `[200]`        |                               |                           |
+| `[RASPI]`                        | `1`      | `Yes`   | `No`         | `0`            | 4GB RAM board                 | Compact, low-cost device for final deployment` |
+| Webcam              | `[1]`    | `No` | `Yes`       | `1000`            | 720p/1080p USB Camera                     | Easy to use, captures real-time hand gestures clearly  |
 
 ## 9.2 Material Justification
 
-Explain why you selected your main materials and components.
-
-**Response:**  
-`DC motors (BO motors) were chosen instead of servos or steppers because the system requires continuous rotation for movement rather than precise angular control (Previously, we were considering using steppers as we were planning on tracking movement on the ESP using its relative position from an origin, but since we're using a camera now, this is not required). A motor driver (L298N) was used to allow bidirectional control and speed variation using PWM.`
-
+The materials and components for this project were selected based on simplicity, cost, and ease of use. A webcam is used because it is easily available and can capture real-time hand movements clearly. The software libraries OpenCV were chosen because they make image processing and hand detection much easier and faster, even for beginners. Python was used as the programming language since it is simple to understand and works well with these libraries. For the final implementation, a Raspberry Pi 4 Model B can be used because it is compact, affordable, and allows the system to run independently without a full computer. Overall, all components were selected to keep the project efficient, low-cost, and easy to implement.
 
 ## 9.3 Items You chose
 
 | Item                 | Why Needed               | Purchase Link | Latest Safe Date to Procure | Status       |
 | -------------------- | ------------------------ | ------------- | --------------------------- | ------------ |
-| `BO Motors + Wheels` | `Drive system for car`   | `robu.in`     | `15th April`                | `[Received]` |
-| `Buck Converter`     | `Stable power for ESP32` | `local store` | `before testing`            | `[Received]` |
-| `Li-ion Batteries`   | `Portable power`         | `local store` | `before testing`            | `Recieved`   |
+| Ras pi  | Main Body of our Project   | NA     |NA               | NA |
+| Webcam     | Captures real-time hand gestures |NA | NA           |NA |
 
 ## 9.4 Budget Summary
 
 | Budget Item           | Estimated Cost              |
 | --------------------- | ---------------------------:|
-| Electronics           | `[400]`                     |
-| Mechanical parts      | `[200]`                     |
-| Fabrication materials | `[0 (Available on campus)]` |
-| Purchased extras      | `[0]`                       |
-| Contingency           | `[300]`                     |
-| **Total**             | `[900]`                     |
+|  Webcam       |1000                     |
+|Raspberry Pi 4 Model B      | 6000                     |
+
 
 ## 9.5 Budget Reflection
 
-If your cost is too high, what can be simplified, removed, substituted, or shared?
-
-**Response:**  
+The major cost of the project comes from the Raspberry Pi and the webcam. If the overall cost needs to be reduced, the Raspberry Pi can be substituted with a personal laptop or desktop system for development and testing, as the core processing can be performed using software tools like OpenCV. Additionally, instead of purchasing a new webcam, an already available laptop camera or a shared external webcam can be used. These alternatives significantly reduce the project cost while still allowing successful implementation and testing of the system 
 
 ---
 
@@ -371,36 +317,52 @@ If your cost is too high, what can be simplified, removed, substituted, or share
 
 ## 10.1 Team Working Agreement
 
-Write how your team will work together.
+  
+The project was divided among four team members based on responsibilities:
 
-Include:
+Member 1: Installation of OS, setup of required libraries, execution of code, and making necessary modifications.
 
-- how tasks are divided,
-- how decisions are made,
-- how progress will be checked,
-- what happens if a task is delayed,
-- how documentation will be maintained.
+Member 2: Development of software prototype, testing on laptop, and partial documentation work.
 
-**Response:**  
+Member 3: Topic finalization, improvement suggestions, and research paper analysis.
+
+Member 4: GitHub repository management, documentation updates, and debugging support.
+
+
+Decisions were taken through group discussions. Final decisions were made based on feasibility, performance, and project requirements after considering suggestions from all members.
+
+Progress was tracked regularly through:
+Weekly discussions
+Code execution and testing results
+Updates on GitHub repository
+If any task was delayed:
+Work was redistributed among team members
+Priority tasks were completed first
+Extra time was allocated to ensure deadlines were met
+Documentation was maintained and updated regularly on GitHub
+Each member contributed to their respective sections
+Final documentation was reviewed and refined collectively
+
 
 
 ## 10.2 Task Breakdown
 
 | Task ID | Task                    | Owner    | Estimated Hours | Deadline     | Dependency | Status |
 | ------- | ----------------------- | -------- | ---------------:| ------------ | ---------- | ------ |
-| T1      | `[Finalize concept]`    | `[Both]` | `2`             | `1st April`  | `None`     | `Done` |
+| T1      |Problem Identification & Idea Finalization   | Purva | 1           | Day 1  | `None`     | `Done` |
+| T2      | System Design (Architecture + Flowchart)   | Amey | 2            | Day 1  | T1     | `Done` |
+| T3      | Implementation (OpenCV + MediaPipe Code)    |Avdhoot | 4             | Day1  | T2     | `Done` |
+| T4      | Testing, Output & Documentation    | Animesh | 4             |Day 2  | T1     | `Not Done` |
 
 
 ## 10.3 Responsibility Split
 
 | Area                 | Main Owner     | Support Owner |
 | -------------------- | ----------     | ------------- |
-| Concept              | `[Mrugendra]`  | `[Jyoti]`     |
-| Electronics          | `[]`           | `[]`          |
-| Coding               | `[]`           | `[]`          |
-| Mechanical build     | `[]`           | `[]`          |
-| Testing              | `[]`           | `[]`          |
-| Documentation        | `[]`           | `[]`          |
+| Electronics, Logic Thinking        | Purva  | Amey      |
+|Coding & Testing         | Amey , Avdhoot          | Purva          |
+| Integration    |Avdhoot           | Amey          |
+| Documentation        | Animesh          |Purva        |
 
 ---
 
