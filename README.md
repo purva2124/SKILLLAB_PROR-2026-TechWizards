@@ -1,6 +1,6 @@
 # SKILL LAB PRATICAL HACKATHON
 
-Yoga Mudra - TechWizards
+Hand Gesture Recognition - A Computer Vision Application for Recognizing Traditional Yoga Hand Gestures TechWizards
 
 > **Project Weight:** 100%  
 > **Team Size:** 4/3 students  
@@ -57,41 +57,28 @@ By the final review, this README should clearly show:
 
 ## 1.1 Tech Wizards
 
-`Project^2`
-
 ## 1.2 Team Members
 
 | Name                  | Primary Role                    | Secondary Role   | Strengths Brought to the Project |
 | --------------        | ------------------------------- | --------------   | -------------------------------- |
-| Purva Patil           | Implementation                  | Coding           | `Documentation, Gift of Gab `|
-| Amey Padwal           | Testing & Training              | Debugging        | `Material Handling, Hardware`    |
-| Animish Pradhan       | Documentation                   | Github           | `Documentation, Gift of Gab `|
-| Avdhoot Dinkar        | Literature survey               | Github           | `Material Handling, Hardware`    |
+| Purva Patil (Team Leader) |System Implementation | Testing, Coding | Electronics, Logical Thinking,Software|
+| Amey Padwal           | Testing, Training              | Debugging        | Hardware Handling    |
+| Animish Pradhan       | Documentation                   | Github           | Documentation|
+| Avdhoot Dinkar        | Literature survey               | Hardware Support        | Research Knowlegde    |
 
 ## 1.3 Project Title
 
-`Yoga Mudras`
-
-`(because Project-or)`
-
-<img width="1600" height="1131" alt="image" src="https://github.com/user-attachments/assets/c64bfbd4-b3b7-43d9-83ad-c203a5aa11bc" />
+Hand Gesture Recognition- A Computer Vision Application for Recognizing Traditional Yoga Hand Gestures
 
 ## 1.4 One-Line Pitch
 
-`A projected, fully customizable time portal where engineering education is done through PUBG battlefield in the comfort of our home`
+A webcam-based Hand Gesture Recognition system that identifies various hand gestures and specifically detects different traditional Yoga Mudras along with their meanings
 
-## 1.5 Expanded Project Idea
+## 1.5 Expanded Project Idea 
 
-In 1–2 paragraphs, explain:
+Yoga Mudras are traditional hand gestures used in yoga, meditation, and wellness practices. This project uses a webcam to recognize different yoga mudras by analyzing hand shape, contour area, and finger gaps using OpenCV. The system captures live video, processes the hand region, detects the gesture, and displays the mudra name along with its meaning on the screen.
+The experience created by this project is an interactive yoga learning assistant. Beginners can place their hand in front of the camera and instantly know which mudra they are performing. The project involves Python, OpenCV, webcam-based image processing, HSV skin detection, contour detection, convex hull analysis, and rule-based classification.
 
-- what your project is,
-- what kind of experience it creates,
-- what technologies are involved.
-
-**Response:**  
-`A projected and fully customizable time portal can transform engineering education into an immersive PUBG-style battlefield experience from the comfort of home. In this environment, students can learn engineering concepts by entering a virtual battlefield where challenges, obstacles, and missions are designed around real technical problems. Instead of passively studying theory, learners actively apply concepts such as electronics, coding, sensors, robotics, mechanics, and system design to complete missions, solve problems, and progress through different levels. This approach makes engineering education more interactive, engaging, and practical by combining gaming, simulation, and hands-on problem-solving in a familiar and exciting format.`
-
----
 
 # 2. Inspiration
 
@@ -99,53 +86,50 @@ In 1–2 paragraphs, explain:
 
 List what inspired the project.
 
-| Source Type | Title / Link                                                        | What Inspired You                                                                         |
-| ----------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `[Video]`   | `https://www.instagram.com/reel/DW4CT7WCDry/?igsh=cXg3dzAxYmdncDBo` | `How projection mapping can be used to create interactive digital + physical experiences` |
-|             |                                                                     |                                                                                           |
-|             |                                                                     |                                                                                           |
+| Source Type | Title / Link                                                        | What Inspired You|
+| ----------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------|
+| Raspberry Pi   | https://www.raspberrypi.com/ | Use of low-cost embedded systems to build the project | 
+| Research Paper | Real-time Recognition of Yoga Poses using computer Vision for Smart Health Care | Inspired the idea of using computer vision to detect yoga mudras and provide feedback |
+|             |                                     |                                                                                           |
 
 ## 2.2 Original Twist
-
-What makes your project original?
-
-**Response:**  
-
-
----
+ 
+This project combines traditional yoga knowledge with modern computer vision. Instead of just detecting gestures, the system also explains the meaning of each mudra in real time. It acts as a beginner friendly learning assistant, allowing users to practice yoga mudras interactively using only a webcam. The focus on Indian cultural elements (yoga mudras) with low-cost hardware like Raspberry Pi makes it unique and practical
 
 # 3. Project Intent
 
 ## 3.1 User Journey 
 
-Describe exactly how a user will use the project.Make it a story
-**Response:**  
-
-                                                  |
-
-
-
----
+A user sits in front of the system where a Raspberry Pi is connected to a webcam and display. When the program starts, the Raspberry Pi runs the Python application and shows a live video feed on the screen with a guide box. The user places their hand inside the box and performs a yoga mudra. The Raspberry Pi captures the video through the webcam, processes each frame using OpenCV, and analyzes the hand shape.
+The system identifies the mudra and displays its name along with its meaning on the screen. The Raspberry Pi acts as the main processing unit, handling image processing and decision making. The user can try different mudras and instantly learn their benefits. This creates an interactive and educational experience where low cost hardware and computer vision technology help users practice yoga correctly
+                                                  
 
 # 4. Definition of Success
 
 ## 4.1 Definition of “Usable”
-
+The project is considered usable when a user can:
+- Successfully place their hand in front of the webcam
+- Get real time detection of at least 3–4 different Yoga Mudras
+- See the mudra name and its meaning displayed clearly on the screen
+- Use the system comfortably in normal room lighting with minimal errors
 
 
 ## 4.2 Minimum Usable Version
 
-What is the smallest version of this project that still delivers the core experience?
-
-**Response:**  
-
+- Real time webcam input with a guide box
+- Skin detection and hand contour extraction
+- Recognition of minimum 3-4 Yoga Mudras
+- Display of mudra name and short meaning on screen
+- Basic "Unknown" gesture handling
 
 ## 4.3 Stretch Features
 
-What features are nice to have but not essential?
-
-
----
+- Add more mudras
+- Improve accuracy using Machine Learning
+- Voice output 
+- Add language support
+- Add practice timer 
+- GUI interface with buttons/menu
 
 # 5. System Overview
 
@@ -159,43 +143,39 @@ Check all that apply.
 
 - [x] Sensor-based
 
-- [x] App-connected
+- [ ] App-connected
 
-- [x] Motorized
+- [ ] Motorized
 
 - [ ] Sound-based
 
-- [x] Light-based
+- [ ] Light-based
 
 - [x] Screen/UI-based
 
-- [x] Fabricated structure
+- [ ] Fabricated structure
 
-- [x] Game logic based
+- [ ] Game logic based
 
-- [x] Installation
+- [ ] Installation
 
 - [ ] Other:
 
 ## 5.2 High-Level System Description
 
-Explain how the system works in simple terms.
+The system is a Yoga Mudra Recognition using Hand Gestures Detection setup built using a Raspberry Pi and a USB webcam. The webcam acts as the input device, capturing live video of the user’s hand. The Raspberry Pi processes this video using Python and OpenCV. The captured frames are converted into HSV color space to detect skin regions, and contour detection is used to identify the hand shape. Based on contour area and convexity defects, the system classifies the gesture into different yoga mudras.
 
-Include:
-
-- input,
-- processing,
-- output,
-- physical structure,
-- app interaction if any.
-
-**Response:**  
+The output is displayed on a screen connected to the Raspberry Pi, where the detected mudra name and its meaning are shown in real time. The physical structure includes the Raspberry Pi unit, webcam, and display setup. The system does not require a mobile app, as all interaction happens directly through the screen interface, making it simple and self contained.
 
 ## 5.3 Input / Output Map
 
-| System Part                              | Type            | What It Does                                                               |
-
-
+| System Part | Type | What It Does |
+| -------- | -------- | -------- |
+|  USB Webcam | Input	 | Captures live video of hand gestures |
+|  Raspberry Pi | Processing  | Runs Python + OpenCV to process images |
+|  OpenCV Software | Processing	 | Detects skin, contours, and classifies mudra |
+|  Display (Monitor) | Output  | Shows video feed with detected mudra name |
+|  User Hand | Input  | Performs yoga mudras |
 ---
 
 # 6. System Design, Sketches and Visual Planning 
@@ -245,19 +225,15 @@ Add a sketch with labels showing:
 ## 7.1 Electronics Used
 
 | Component                 | Quantity | Purpose                               |
-| ------------------------- | --------:| ------------------------------------- |
-| Raspi                     | `1`      |    Main controller                    |
-| Camera (Webcam)           | `1`      | Tracks Mudra usding Hand gesture      |
+| ------------------------- | --------| ------------------------------------- |
+| Raspberry Pi              | 1      |    Main processing unit    |
+| Camera (Webcam)           | 1      | Captures Hand gesture      |
+| Display (Monitor)         | 1      | Displays Output & UI      |
+| Power Adapter        | 1      | Power Supply      |
 
 ## 7.2 Wiring Plan
-Describe the main electrical connections.
 
-**sample Response:**  
-`The RASPI is connected to the motor driver (L298N) using four GPIO pins (18,19; 22,23) to control motor direction (IN1, IN2, IN3, IN4). Two PWM-capable pins (ENA and ENB; 25 and 26) are connected to control the speed of each motor.
-
-The motors are connected to the output terminals of the motor driver. The motor driver is powered directly by the battery pack (higher voltage), while the ESP32 receives regulated 5V from the buck converter.
-
-All components share a common ground to ensure stable operation. The projector and camera are connected to the laptop, which handles tracking and game logic separately.`
+The USB webcam is directly connected to the Raspberry Pi via a USB port. The Raspberry Pi is powered using a standard power adapter. A display monitor is connected through HDMI to show the live camera feed and detected results. No complex wiring is required, as the system relies mainly on software processing. All components operate through simple plug-and-play connections, making the setup compact and easy to use.
 
 ## 7.3 Circuit Diagram/architecture diagram
 
