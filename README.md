@@ -451,7 +451,7 @@ The biggest uncertainty in this project is achieving **consistent and accurate h
 
 | Tester       | What They Did                                      | What Confused Them                                      | What They Enjoyed                                      | What You Will Change                                      |
 |--------------|----------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------------------|
-| `Purva`      | Tested different mudras in front of webcam         | Detection varied with lighting conditions                | Real-time gesture response                             | Improve lighting setup and adjust HSV thresholds           |
+| `Purva`      | Tested different mudras in front of webcam         | Detection varied with lighting conditions                | Real time gesture response                             | Improve lighting setup and adjust HSV thresholds           |
 | `Amey`       | Tried Gyan and Anjali mudras repeatedly            | Similar gestures sometimes misclassified                 | Simple and intuitive interaction                       | Improve gesture classification logic                       |
 | `Avadhoot`   | Tested system in different backgrounds             | Background noise affected detection                      | Instant on-screen output                               | Add better noise filtering and controlled background       |
 | `Animesh`    | Tested continuous gesture input                    | Slight lag in response                                   | Smooth working after adjustments                       | Optimize processing speed and reduce frame size            |
@@ -484,9 +484,7 @@ Suggested images:
 
 ## 17.1 Final Description
 
-Describe the final version of your project.
 
-**Response:**  
 The final version of the project is a real-time **Yoga Mudra Hand Gesture Recognition System** implemented using a Raspberry Pi and a webcam. The system captures live video input and processes each frame using OpenCV-based image processing techniques such as skin color segmentation, contour detection, convex hull, and convexity defects to identify hand gestures.
 
 The system is capable of recognizing predefined yoga mudras such as Gyan Mudra, Anjali Mudra, and Chin Mudra, and displays the detected gesture on the screen in real time. It has been optimized to run smoothly on the Raspberry Pi by reducing frame size and improving processing efficiency.
@@ -495,8 +493,7 @@ The final prototype works reliably under controlled lighting conditions with a s
 
 
 ## 17.2 What Works Well
-
-**Response:**  
+ 
 The system performs well in real-time hand gesture detection using a webcam and Raspberry Pi, providing smooth and continuous video processing. The OpenCV-based pipeline, including skin color segmentation, contour detection, and convex hull analysis, works effectively for identifying predefined yoga mudras.
 
 The gesture recognition is accurate under controlled lighting conditions and simple backgrounds, with minimal delay in output display. The system is easy to use, requiring only hand gestures without any additional hardware or input devices. Overall, the integration of hardware and software is stable, and the project successfully demonstrates a practical and interactive application of computer vision.
@@ -505,27 +502,16 @@ The gesture recognition is accurate under controlled lighting conditions and sim
 
 ## 17.3 What Still Needs Improvement
 
-**Response:**  
 The system still requires improvement in handling varying lighting conditions and complex backgrounds, as these factors can affect the accuracy of hand detection and gesture recognition. The current implementation relies on basic image processing techniques, which may lead to false positives when gestures are similar. Additionally, the system supports only a limited number of yoga mudras, and expanding the gesture set would improve its usability. Performance optimization can also be enhanced to achieve smoother real-time processing on the Raspberry Pi with higher frame rates.
 
 ---
 
 ## 17.4 What Changed From the Original Plan
 
-How did the project change from the initial idea?
-
-**Response:**  
 Initially, the project aimed to implement a more advanced gesture recognition system with higher accuracy and support for multiple gestures. However, due to hardware limitations and complexity, the approach was simplified to use OpenCV-based image processing techniques instead of more computationally intensive methods. The focus shifted towards achieving reliable real-time performance on the Raspberry Pi rather than implementing complex models. Additionally, the number of supported mudras was reduced to a few key gestures to ensure better accuracy and stability within the given time constraints.
 
 # 18. Reflection
 
-## 18.1 Team Reflection
-
-What did your team do well?  
-What slowed you down?  
-How well did you manage time, tasks, and responsibilities?
-
-**Response:**  
 Our team worked effectively in dividing tasks such as hardware setup, coding, and testing, which helped us make steady progress on the project. We were able to successfully implement the core functionality of real-time hand gesture recognition using coordinated efforts. Regular testing and discussion helped us identify and fix issues quickly.
 
 However, we faced challenges due to varying lighting conditions and inconsistencies in gesture detection, which slowed down our progress. Initial setup and debugging on the Raspberry Pi also took more time than expected.
@@ -534,16 +520,6 @@ Overall, we managed time reasonably well by following a structured plan and comp
 
 
 ## 18.2 Technical Reflection
-
-What did you learn about:
-
-- electronics,
-- coding,
-- mechanisms,
-- fabrication,
-- integration?
-
-**Response:**  
 
 **Electronics:**  
 We learned how to interface hardware components like a webcam with the Raspberry Pi and ensure stable power supply and connectivity. We also understood practical issues such as hardware reliability and system setup.
@@ -563,16 +539,6 @@ We understood how to combine hardware and software into a complete working syste
 
 ## 18.3 Design Reflection
 
-What did you learn about:
-
-- designing,
-- delight,
-- clarity,
-- physical interaction,
-- understanding,
-- iteration?
-
-**Response:**  
 
 **Designing:**  
 We learned the importance of creating a simple and effective system design where both hardware and software work seamlessly. A clear pipeline from input (camera) to output (gesture display) was essential.
@@ -595,9 +561,7 @@ We learned that continuous testing and improvement are crucial. By repeatedly ad
 
 ## 18.4 If You Had One More hour
 
-What would you improve next?
-
-To maximize the project's impact, we could integrate a multithreaded multimodal feedback layer that uses temporal thresholding to provide real-time auditory instruction without lagging the video feed. By requiring a stable gesture for a 60-frame window, the system triggers an asynchronous Text-to-Speech (TTS) engine to announce the Mudra's benefits, transforming the classifier into a low-latency assistive technology. This eyes-free interface enhances accessibility for visually impaired users and ensures the practitioner remains in a meditative state while receiving pedagogical feedback.
+To maximize the project's impact, we could integrate adding voice feedback for each detected mudra, improving detection accuracy using more refined contour analysis or integrating MediaPipe for precise hand landmark tracking, and expanding the number of recognizable mudras to make the system more comprehensive. I would also include stability improvements to reduce flickering between detections, add a “No Hand” or “Unknown” state for robustness, and display performance metrics like FPS. These improvements would make the system more interactive, accurate, and user-friendly while maintaining real-time performance on the Raspberry Pi.
 
 # 19. Final Submission Checklist
 
