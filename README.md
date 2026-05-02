@@ -139,19 +139,9 @@ The output is displayed on a screen connected to the Raspberry Pi, where the det
 
 # 6. System Design, Sketches and Visual Planning 
 
-## 6.1 Concept Architecture/sketch/schematic
+## 6.1 Concept Architecture/sketch/schemati
 
-Add an early sketch of the full idea.
-
-**Insert image below:**  
-`[Upload image and link here]`
-
-Example:
-
-```md
-
-```
-
+<img src="images/block diagram.jpeg">
 
 
 ## 6.2 Labeled Build Sketch/architecture/flow diagram/algorithm
@@ -218,63 +208,47 @@ Insert a hand-drawn or software-made circuit diagram.
 
 ## 8.1 Software Tools
 
-| Tool / Platform                | Purpose                                        |
-| ------------------------------ | ---------------------------------------------- |
-
-| `[Python/PyGame/OpenCV]`       | `Track markers, game logic, create projection` |
-| `[Fusion/Blender/Illustrator]` | `[Prototyping structure]`                      |
-|                                |                                                |
+| Tool / Platform | Purpose                                                                           |
+| --------------- | --------------------------------------------------------------------------------- |
+| [Python]      | Main programming language used to write the mudra recognition code              |
+| [OpenCV]      | Captures webcam video, processes frames, detects contours, and displays results |
+| [NumPy]       | Supports image array operations and mask processing                             |
+| [Thonny IDE]  | Used to write, run, and debug the Python program on Raspberry Pi                |
 
 ## 8.2 Software Logic/Algorithm
 
-Describe what the code must do.
+* *Startup behavior:*
+  The Raspberry Pi starts the Python program and initializes the USB webcam using OpenCV.
 
-Include:
+* *Input handling:*
+  The webcam continuously captures live video frames of the user’s hand.
 
-- startup behavior,
-- input handling,
-- sensor reading,
-- decision logic,
-- output behavior,
-- communication logic,
-- reset behavior.
+* *Sensor reading:*
+  The webcam acts as an image sensor and sends visual data to the Raspberry Pi.
 
-**Response:**  
+* *Processing:*
+  OpenCV flips the frame, selects a Region of Interest (ROI), converts it into HSV color space, and applies a skin-color mask.
+
+* *Decision logic:*
+  The program detects hand contours and analyzes contour area, convex hull, and convexity defects. Based on these values, it classifies the hand gesture as a yoga mudra such as Gyan Mudra, Namaste Mudra, Abhaya Mudra, or Fist Mudra.
+
+* *Output behavior:*
+  The detected mudra name and meaning are displayed on the screen in real time.
+
+* *Communication logic:*
+  No wireless communication is required. The webcam is connected directly to the Raspberry Pi through USB, and the display output is shown on the connected screen/VNC.
+
+* *Reset behavior:*
+  The program keeps updating continuously until the user presses q to exit. If no hand is detected, it displays No Hand or Unknown Mudra.
+
+---
 `
-
-- **Sample Startup behavior:**  
-  The Raspi/FPGA initializes motor pins, PWM control, and starts a WiFi access point with a web server. The laptop initializes camera input, tracking system, and projection mapping.
-- **Input handling:**  
-  Movement commands are received from the laptop (pygame sends http requests)
-- **Sensor reading:**  
-  The camera continuously captures frames, and OpenCV detects ArUco markers to determine the car’s position and orientation.
-- **Decision logic:**  
-  The system maps the car’s position into a virtual coordinate system and checks for nearby obstacles or collisions. If movement is valid, the command is allowed; if not, it is blocked or replaced with a feedback action (like a slight shake).
-- **Output behavior:**  
-  The ESP32 drives the motors using PWM signals to control speed and direction. The projector displays the updated game environment, including obstacles, targets, and feedback visuals.
-- **Communication logic:**  
-  The laptop sends HTTP requests (e.g., `/forward`, `/left`) to the ESP32 over WiFi. The ESP32 parses these commands and executes motor actions.
-- **Reset behavior:**  
-  If no command is received within a short timeout, the ESP32 stops the motors. The game resets when a level is completed or restarted.`
 
 ## 8.3 Code Flowchart
 
-Insert a flowchart showing your code logic.
+ 
 
-Suggested sequence:
-
-- start,
-- initialize,
-- wait for input,
-- read input,
-- decision,
-- trigger output,
-- repeat or reset,
-- error handling.
-
-**Insert image below:**  
-<img width="1600" height="1200" alt="image" src="" />
-<img width="1600" height="1200" alt="image" src="" />
+<img src="images/flowchart.png">
 
 
 
@@ -368,68 +342,79 @@ Final documentation was reviewed and refined collectively
 
 # 11 hour Milestones
 
-## 11.1 8-hour Plan(tentetively you may set)
-
-### Bi Hour 1 — Plan and De-risk
-
-Expected outcomes:
-
-- [x] Idea finalized
-- [x] Core interaction decided
-- [x] Sketches made
-- [x] BOM completed
-- [x] Purchase needs identified
-- [ ] Key uncertainty identified
-- [x] Basic feasibility tested
-
-### Bi Hour 2 — Build Subsystems
-
-Expected outcomes:
-
-- [x] Electronics tests completed
-- [ ] CAD / structure planning completed
-- [ ] App UI started if needed
-- [x] Mechanical concept tested
-- [x] Main subsystems partially working
-
-### Bi Hour 3 — Integrate
-
-Expected outcomes:
-
-- [x] Physical body built
-- [x] Electronics integrated
-- [x] Code connected to hardware
-- [ ] App connected if required
-- [x] First playable version exists
-
-### Bi Hour 4 — Refine and Finish
-
-Expected outcomes:
-
-- [x] Technical bugs reduced
-- [x] Playtesting completed
-- [x] Improvements made
-- [x] Documentation completed
-- [x] Final build ready
-
-## 12.2  Update Log
-
-| Days   | Planned Goal   | What Actually Happened | What Changed   | Next Steps     |
-| ------ | -------------- | ---------------------- | -------------- | -------------- |
-| Day 1 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 2 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 3 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 4 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
+### 11.1 8-hour Plan (tentatively you may set)
 
 ---
 
+### Bi Hour 1 — Plan and De-risk
+
+**Expected outcomes:**
+
+- [x] Idea finalized  
+- [x] Core interaction decided  
+- [x] Sketches made  
+- [x] BOM completed  
+- [x] Purchase needs identified  
+- [ ] Key uncertainty identified  
+- [x] Basic feasibility tested  
+
+---
+
+### Bi Hour 2 — Build Subsystems
+
+**Expected outcomes:**
+
+- [x] Electronics tests completed  
+- [ ] CAD / structure planning completed  
+- [ ] App UI started if needed  
+- [x] Mechanical concept tested  
+- [x] Main subsystems partially working  
+
+---
+
+### Bi Hour 3 — Integrate
+
+**Expected outcomes:**
+
+- [ ] Physical body built  
+- [ ] Electronics integrated  
+- [ ] Code connected to hardware  
+- [ ] App connected if required  
+- [ ] First playable version exists  
+
+---
+
+### Bi Hour 4 — Refine and Finish
+
+**Expected outcomes:**
+
+- [ ] Technical bugs reduced  
+- [ ] Playtesting completed  
+- [ ] Improvements made  
+- [ ] Documentation completed  
+- [ ] Final build ready  
+
+## 🔗 12.2 Update Log
+
+| Days  | Planned Goal                                      | What Actually Happened                                      | What Changed                                      | Next Steps                                      |
+|-------|--------------------------------------------------|------------------------------------------------------------|--------------------------------------------------|------------------------------------------------|
+| Day 1 | Setup Raspberry Pi, install OpenCV               | Installed OS, configured webcam, tested video capture       | Faced minor camera detection issues              | Complete OpenCV setup and test preprocessing    |
+| Day 2 | Implement hand detection using OpenCV            | Basic hand detection using HSV segmentation and contours    | Adjusted HSV thresholds for better accuracy      | Improve gesture recognition and reduce noise    |
 # 13. Risks and Unknowns
 
 ## 13.1 Risk Register
 
-| Risk                                                            | Type         | Likelihood | Impact   | Mitigation Plan                                                                       | Owner                |
-| --------------------------------------------------------------- | ------------ | ---------- | -------- | ------------------------------------------------------------------------------------- | -------------------- |
-| WiFi connection between laptop and ESP32 becomes unstable       | `Technical`  | `Medium`   | `High`   | Keep ESP32 close, ensure stable power supply, reduce network load, add fail-safe stop | `[Gopal]`           |
+| Risk                                                                 | Type         | Likelihood | Impact   | Mitigation Plan                                                                                  | Owner            |
+|----------------------------------------------------------------------|--------------|------------|----------|--------------------------------------------------------------------------------------------------|------------------|
+| Poor lighting affects hand detection accuracy                        | `Technical`  | `High`     | `High`   | Use controlled lighting, adjust HSV thresholds, apply brightness/contrast correction             | `[Your Name]`    |
+| Skin color detection fails under different lighting conditions       | `Technical`  | `High`     | `High`   | Use adaptive thresholding, test under multiple lighting environments                             | `[Your Name]`    |
+| Background noise interferes with hand segmentation                   | `Technical`  | `Medium`   | `High`   | Use plain background, apply filtering (blur, erosion, dilation)                                  | `[Your Name]`    |
+| Incorrect gesture recognition (false positives)                      | `Technical`  | `High`     | `Medium` | Improve contour detection, convex hull analysis, fine-tune parameters                            | `[Your Name]`    |
+| Webcam not detected or fails during runtime                          | `Technical`  | `Medium`   | `High`   | Check drivers, test camera beforehand, keep backup webcam                                         | `[Your Name]`    |
+| Slow performance / lag on Raspberry Pi                               | `Technical`  | `Medium`   | `Medium` | Reduce frame size, optimize OpenCV processing, limit FPS                                          | `[Your Name]`    |
+| Hand not properly detected due to complex background                 | `Technical`  | `Medium`   | `Medium` | Ensure simple background during demo, use ROI (Region of Interest)                                | `[Your Name]`    |
+| Hardware issues (power supply, SD card failure)                      | `Hardware`   | `Low`      | `High`   | Use stable power supply, keep backup SD card                                                      | `[Your Name]`    |
+| Limited number of mudras supported                                   | `Scope`      | `Low`      | `Medium` | Clearly define supported mudras (e.g., Gyan, Anjali, Chin)                                        | `[Your Name]`    |
 
 
 ## 13.2 Biggest Unknown Right Now
@@ -437,66 +422,45 @@ Expected outcomes:
 What is the single biggest uncertainty in your project at this stage?
 
 **Response:**  
-
-
----
-
+The biggest uncertainty in this project is achieving **consistent and accurate hand gesture recognition under varying real-world conditions** using only OpenCV-based techniques. Since the system relies on skin color detection, contour extraction, and convex hull analysis, its performance can be significantly affected by changes in lighting conditions, background complexity, and variations in skin tones. Ensuring that the system correctly distinguishes between similar yoga mudras without false detection remains a key challenge. Additionally, maintaining real-time performance on the Raspberry Pi while processing video frames adds to the uncertainty.
 # 14. Testing 
 
 ## 14.1 Technical Testing Plan
 
-| What Needs Testing     | How You Will Test It                                                                 | Success Condition                                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| `[Wifi connection]`    | `[Check if motor spins via app button]`                                              | `[Both motors accurately respond to wifi signals]`                                                   |
-                       |
+| What Needs Testing              | How You Will Test It                                                                 | Success Condition                                                                                   |
+|--------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Webcam functionality           | Run OpenCV camera capture and display live feed                                     | Webcam opens successfully and shows continuous video stream                                         |
+| Frame preprocessing            | Apply resizing, flipping, and filtering on frames                                   | Processed frames display correctly without distortion                                               |
+| Hand detection (ROI)           | Place hand in front of camera and check detection area                              | Hand region is correctly identified and isolated                                                    |
+| Skin color segmentation        | Test HSV thresholding under different lighting conditions                           | Skin region is consistently detected with minimal noise                                             |
+| Noise removal                  | Apply blur, erosion, dilation                                                       | Background noise is reduced while keeping hand shape intact                                         |
+| Contour detection              | Detect contours of hand in segmented image                                          | Largest contour corresponds to hand shape                                                           |
+| Feature extraction             | Compute convex hull and convexity defects                                           | Features are correctly extracted for different hand poses                                           |
+| Gesture recognition            | Show predefined mudras (Gyan, Anjali, Chin)                                         | System correctly identifies and labels gestures                                                     |
+| Real-time performance          | Run full system continuously on Raspberry Pi                                        | System runs smoothly with minimal lag (acceptable FPS)                                              |
+| System stability               | Run system for extended time (10–15 minutes)                                        | No crashes or major performance degradation                                                         |
 ## 14.2 Testing and Debugging Log
 
-| Date          | Problem Found                         | Type         | What You Tried                                | Result               | Next Action                                    |
-| ------------- | ------------------------------------- | ------------ | --------------------------------------------- | -------------------- | ---------------------------------------------- |
-| `18th April`  | `Car not balancing properly`          | `Mechanical` | `Add low-friction caster support to one side` | `Worked`             | `improve caster structure`                     |
+| Date           | Problem Found                                      | Type         | What You Tried                                                                 | Result               | Next Action                                      |
+|----------------|---------------------------------------------------|--------------|--------------------------------------------------------------------------------|----------------------|--------------------------------------------------|
+| 30th April 2026| Webcam not opening & initial hand detection failed | Technical    | Checked camera index, reinstalled drivers, adjusted HSV range                 | Partially Worked     | Fine-tune detection parameters                   |
+| 2nd May 2026   | Background noise & incorrect gesture detection     | Technical    | Applied blur, erosion/dilation, improved contour & convex hull logic          | Improved             | Optimize accuracy and reduce false positives     |                   |
 
 
 ## 14.3 Playtesting Notes
 
-| Tester      | What They Did                        | What Confused Them                    | What They Enjoyed                         | What You Will Change                          |
-| ----------- | ------------------------------------ | ------------------------------------- | ----------------------------------------- | --------------------------------------------- |
-| `Gopal` | `Tried navigating through obstacles` | `Some obstacles ewren't clear enough` | `Liked projection + real car interaction` | `Add a slight red highlight around obstacles` |
-
-
----
+| Tester       | What They Did                                      | What Confused Them                                      | What They Enjoyed                                      | What You Will Change                                      |
+|--------------|----------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------|-----------------------------------------------------------|
+| `Purva`      | Tested different mudras in front of webcam         | Detection varied with lighting conditions                | Real-time gesture response                             | Improve lighting setup and adjust HSV thresholds           |
+| `Amey`       | Tried Gyan and Anjali mudras repeatedly            | Similar gestures sometimes misclassified                 | Simple and intuitive interaction                       | Improve gesture classification logic                       |
+| `Avadhoot`   | Tested system in different backgrounds             | Background noise affected detection                      | Instant on-screen output                               | Add better noise filtering and controlled background       |
+| `Animesh`    | Tested continuous gesture input                    | Slight lag in response                                   | Smooth working after adjustments                       | Optimize processing speed and reduce frame size            |
 
 # 15. Build Documentation
 
 ## 15.1 Fabrication Process(if any)
 
-Describe how the project was physically made.
-
-Include:
-
-- cutting,
-- 3D printing,
-- assembly,
-- fastening,
-- wiring,
-- finishing,
-- revisions.
-
-**Response:**  
-`The fabrication process involved designing, manufacturing, assembling, and refining both the physical structure and electronic integration of the system.`
-
-`Design (CAD Modeling):
-The initial model was created using CAD software, where components were designed based on the actual dimensions of the electronic parts. This ensured accurate fitting and minimized errors during assembly.
-Cutting (Laser Cutting):
-The designed parts were fabricated using laser cutting techniques. Sheets were cut precisely according to the CAD model to create the structural base and mounts for components.`
-
-`Components were fixed using adhesives and mechanical supports. Certain parts were intentionally kept modular (not permanently fixed) to allow easy replacement and modification of electronics.
-Surface Finishing:
-Some parts were sanded to smooth rough edges after cutting. Sawdust mixed with adhesive was used to fill gaps and uneven edges, improving structural finish. The final structure was then painted for better aesthetics and durability.`
-
-`Environment Setup (Dark Room Fabrication):
-To enhance projection visibility, a controlled dark environment was created using Z-boards, paper sheets, and bedsheets. This minimized external light interference and improved projection clarity.
-Revisions and Iterations:
-Multiple adjustments were made throughout the process, including refining alignment, improving structural stability, repositioning components, and optimizing the interaction between the physical car and projected environment.`
+NA
 
 ## 16 Build Photos
 
@@ -523,23 +487,35 @@ Suggested images:
 Describe the final version of your project.
 
 **Response:**  
+The final version of the project is a real-time **Yoga Mudra Hand Gesture Recognition System** implemented using a Raspberry Pi and a webcam. The system captures live video input and processes each frame using OpenCV-based image processing techniques such as skin color segmentation, contour detection, convex hull, and convexity defects to identify hand gestures.
+
+The system is capable of recognizing predefined yoga mudras such as Gyan Mudra, Anjali Mudra, and Chin Mudra, and displays the detected gesture on the screen in real time. It has been optimized to run smoothly on the Raspberry Pi by reducing frame size and improving processing efficiency.
+
+The final prototype works reliably under controlled lighting conditions with a simple background and demonstrates accurate gesture detection with minimal lag. This project successfully showcases the application of computer vision in health and wellness, enabling a touch-free and intuitive way to interact with systems using hand gestures. 
 
 
 ## 17.2 What Works Well
+
+**Response:**  
+The system performs well in real-time hand gesture detection using a webcam and Raspberry Pi, providing smooth and continuous video processing. The OpenCV-based pipeline, including skin color segmentation, contour detection, and convex hull analysis, works effectively for identifying predefined yoga mudras.
+
+The gesture recognition is accurate under controlled lighting conditions and simple backgrounds, with minimal delay in output display. The system is easy to use, requiring only hand gestures without any additional hardware or input devices. Overall, the integration of hardware and software is stable, and the project successfully demonstrates a practical and interactive application of computer vision.
 
 
 
 ## 17.3 What Still Needs Improvement
 
+**Response:**  
+The system still requires improvement in handling varying lighting conditions and complex backgrounds, as these factors can affect the accuracy of hand detection and gesture recognition. The current implementation relies on basic image processing techniques, which may lead to false positives when gestures are similar. Additionally, the system supports only a limited number of yoga mudras, and expanding the gesture set would improve its usability. Performance optimization can also be enhanced to achieve smoother real-time processing on the Raspberry Pi with higher frame rates.
+
+---
 
 ## 17.4 What Changed From the Original Plan
 
 How did the project change from the initial idea?
 
 **Response:**  
-
-
----
+Initially, the project aimed to implement a more advanced gesture recognition system with higher accuracy and support for multiple gestures. However, due to hardware limitations and complexity, the approach was simplified to use OpenCV-based image processing techniques instead of more computationally intensive methods. The focus shifted towards achieving reliable real-time performance on the Raspberry Pi rather than implementing complex models. Additionally, the number of supported mudras was reduced to a few key gestures to ensure better accuracy and stability within the given time constraints.
 
 # 18. Reflection
 
@@ -550,6 +526,11 @@ What slowed you down?
 How well did you manage time, tasks, and responsibilities?
 
 **Response:**  
+Our team worked effectively in dividing tasks such as hardware setup, coding, and testing, which helped us make steady progress on the project. We were able to successfully implement the core functionality of real-time hand gesture recognition using coordinated efforts. Regular testing and discussion helped us identify and fix issues quickly.
+
+However, we faced challenges due to varying lighting conditions and inconsistencies in gesture detection, which slowed down our progress. Initial setup and debugging on the Raspberry Pi also took more time than expected.
+
+Overall, we managed time reasonably well by following a structured plan and completing major milestones within the given timeframe. Responsibilities were shared among team members, though better planning in the early stages could have improved efficiency. Despite some delays, we were able to complete the project successfully with a working prototype.
 
 
 ## 18.2 Technical Reflection
@@ -564,12 +545,27 @@ What did you learn about:
 
 **Response:**  
 
+**Electronics:**  
+We learned how to interface hardware components like a webcam with the Raspberry Pi and ensure stable power supply and connectivity. We also understood practical issues such as hardware reliability and system setup.
+
+**Coding:**  
+We gained hands-on experience in Python programming using OpenCV for real-time image processing. This included frame capture, preprocessing, contour detection, and implementing logic for gesture recognition.
+
+**Mechanisms:**  
+Although the project is mostly software-based, we understood how to position the camera and hand region effectively to ensure proper detection and smooth operation.
+
+**Fabrication:**  
+We learned basic setup and arrangement of hardware components, including mounting the camera and organizing the system for a clean and functional prototype.
+
+**Integration:**  
+We understood how to combine hardware and software into a complete working system. Integrating camera input, image processing, and output display in real time on Raspberry Pi was a key learning outcome.
+
 
 ## 18.3 Design Reflection
 
 What did you learn about:
 
-- designing ,
+- designing,
 - delight,
 - clarity,
 - physical interaction,
@@ -578,16 +574,30 @@ What did you learn about:
 
 **Response:**  
 
+**Designing:**  
+We learned the importance of creating a simple and effective system design where both hardware and software work seamlessly. A clear pipeline from input (camera) to output (gesture display) was essential.
+
+**Delight:**  
+We realized that real-time gesture recognition creates an engaging and satisfying user experience. Seeing immediate results on the screen made the system intuitive and enjoyable to use.
+
+**Clarity:**  
+Clear visual feedback is important. Displaying the detected mudra name on screen helped users understand whether their gesture was recognized correctly.
+
+**Physical Interaction:**  
+We understood how users interact physically with the system through hand gestures. Proper hand positioning, distance from the camera, and movement play a key role in accurate detection.
+
+**Understanding:**  
+We gained insight into how users behave while using the system and the challenges they face, such as maintaining correct hand posture and dealing with environmental conditions.
+
+**Iteration:**  
+We learned that continuous testing and improvement are crucial. By repeatedly adjusting parameters (like HSV values and filtering), we improved detection accuracy and system performance over time.
+
 
 ## 18.4 If You Had One More hour
 
 What would you improve next?
 
-**Response:**  
-
-` `
-
----
+To maximize the project's impact, we could integrate a multithreaded multimodal feedback layer that uses temporal thresholding to provide real-time auditory instruction without lagging the video feed. By requiring a stable gesture for a 60-frame window, the system triggers an asynchronous Text-to-Speech (TTS) engine to announce the Mudra's benefits, transforming the classifier into a low-latency assistive technology. This eyes-free interface enhances accessibility for visually impaired users and ensures the practitioner remains in a meditative state while receiving pedagogical feedback.
 
 # 19. Final Submission Checklist
 
@@ -601,7 +611,7 @@ Before submission, confirm that:
 - [x] Purchase list is complete
 - [x] Budget summary is complete
 - [x] Mechanical planning is documented if applicable
-- [ ] App planning is documented if applicable
+- [x] App planning is documented if applicable
 - [x] Code flowchart is added
 - [x] Task breakdown is complete
 - [x] Weekly logs are updated
